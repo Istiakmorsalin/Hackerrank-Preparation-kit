@@ -25,7 +25,6 @@ fun rotateLeft(array: Array<Int>, d: Int): Array<Int> {
         listFirst.addAll(givenList.subList(d, givenList.size))
         listSecond.addAll(givenList.subList(0, d))
     }
-
     finalList.addAll(listFirst)
     finalList.addAll(listSecond)
     return  finalList.toTypedArray();
@@ -34,14 +33,10 @@ fun rotateLeft(array: Array<Int>, d: Int): Array<Int> {
 
 fun main(args: Array<String>) {
     val firstMultipleInput = readLine()!!.trimEnd().split(" ")
-
     val n = firstMultipleInput[0].toInt()
     val d = firstMultipleInput[1].toInt()
-
     val a = readLine()!!.trimEnd().split(" ").map{ it.toInt() }.toTypedArray()
-
     val result = rotateLeft(a, d)
-
     println(result.joinToString(" "))
 }
 
