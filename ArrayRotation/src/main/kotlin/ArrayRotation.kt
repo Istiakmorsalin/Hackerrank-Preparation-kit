@@ -16,22 +16,19 @@ Note that the lowest index item moves to the highest index in a rotation. This i
 
 fun rotateLeft(array: Array<Int>, d: Int): Array<Int> {
     // Write your code here
-    val arrayFirst: MutableList<Int> =  ArrayList()
-    val arraySecond: MutableList<Int> =  ArrayList()
-    val finalArray: MutableList<Int> = ArrayList()
-    for(indexValue in array) {
-        if(indexValue <= d) {
-            arrayFirst.add(indexValue)
-        } else {
-            arraySecond.add(indexValue)
-        }
+    var listFirst: MutableList<Int> =  ArrayList()
+    var listSecond: MutableList<Int> =  ArrayList()
+    val finalList: MutableList<Int> = ArrayList()
+    val givenList: MutableList<Int> = array.toMutableList()
+    // break list into two partitions
+    if(d <= givenList.size) {
+        listFirst.addAll(givenList.subList(d, givenList.size))
+        listSecond.addAll(givenList.subList(0, d))
     }
-    println(arraySecond)
-    println(arrayFirst)
 
-    finalArray.addAll(arraySecond)
-    finalArray.addAll(arrayFirst)
-    return  finalArray.toTypedArray();
+    finalList.addAll(listFirst)
+    finalList.addAll(listSecond)
+    return  finalList.toTypedArray();
 }
 
 
